@@ -279,14 +279,28 @@
 	map (negate . abs) [1,-2,7,3,3,2,1]	-- the "." operator composes two functions together, executing the one on the right and then passing the result to the one on the left as a parameter
 	sum . replicate 5 . max 6.7 $ 8.9 	-- when using functions with more than one parameter, to be combined they just need to be filled up to one parameter remaining
 
--- MODULES
+-- 8 - MODULES
 
 	import Data.List 				-- to import a module, it needs to be at the top of the file 
 	import Data.List (nub, sort)	-- to selectively import some functions, include them in parentheses
 	import Data.List hiding (nub)	-- or import all of them except some
 	import qualified Data.Map as M  -- the qualified import prevents name clashes, prepending to each offender what is defined in as (M.filter)
 	
+	-- Data.List module
 
+	intersperse 1 [2,3,4] 						-- takes an element and a list and returns another list with the element put between every member of the list ([2,1,3,1,4])
+	intercalate " "["hello","there","poople"]	-- takes a list and a list of lists, puts the list between every child list and flattens the result ("hello there poople")
+	transpose [[1,2,3],[4,5,6],[7,8,9]]			-- thinking of the list of lists as a 2D matrix, transpose flips the coordinates
+	foldl1'										-- is the strict counterpart to the lazy foldl1, therefore it computes all values when asked
+	concat [[1,2,3],[4,5,6]]					-- takes a list of lists and flattens it
+	concatMap (replicate 2) [1..3]				-- maps a function to a list and then concatenates it ([1,1,2,2,3,3])
+
+	and $ map (==3) [1,3,4]						-- and returns true only if every item in  list is true
+	or $ map (==3) [1,3,4]						-- or returns true if one item in a list is true
+	any (==3) [1,2,3]							-- checks if any of the elements in a list satisfy a predicate
+	all (==3) [1,2,3]							-- checks if all of the elements in a list satisfy a predicate
+	iterate (*5) 1 								-- iterate takes a function and a starting value, and then applies the function to the result of the same function, returning all the results in the form of an infinite list
+	splitAt 3 [1,2,3,4,5,6]						-- takes a number and a list, and splits the list to the n return the two halves in a tuple
 
 
 
