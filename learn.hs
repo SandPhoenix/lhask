@@ -301,9 +301,16 @@
 	all (==3) [1,2,3]							-- checks if all of the elements in a list satisfy a predicate
 	iterate (*5) 1 								-- iterate takes a function and a starting value, and then applies the function to the result of the same function, returning all the results in the form of an infinite list
 	splitAt 3 [1,2,3,4,5,6]						-- takes a number and a list, and splits the list to the n return the two halves in a tuple
-
-
-
+	span (/= " ") "hello poople"				-- takes a predicate and a list, then returns a tuple of lists split when the predicate returns false
+	break (== " ") "hello poople"				-- like span, but returns when the predicate is first true
+	sort [1,2,3] 								-- gues this is pretty self explanatory
+	group [1,1,2,2,3,4,4,3]						-- takes a list and groups adjacent objects if they're equal
+	inits "hello"								-- takes a list and applies init recursively (["","h","he","hel","hell","hello"])
+	tails "hello"								-- as above but from the end (["","o","lo","llo","ello","hello"])
+	"hello" `isInfixOf` "hello poople"			-- takes two lists and checks if te sublist is contained in the list
+	"hello" `isPrefixOf` "hello poople"			-- checks if the sublist is at the start of the list
+	"poople" `isSuffixOf` "hello poople"		-- checks if the sublist is at the end of the list
+	
 
 
 

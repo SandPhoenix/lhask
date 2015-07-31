@@ -88,5 +88,15 @@ chain n
 
 num_chains = length (filter (\ xs -> length xs > 15 ) (map (chain) [1..100]))
 
+needInHay :: (Eq a) => [a] -> [a] -> Bool
+needInHay _ [] = False
+needInHay needle haystack
+	| take nLen haystack == needle = True
+	| otherwise = needInHay needle (tail haystack)
+	where nLen = length needle
+
+
+
+
 
 
