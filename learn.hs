@@ -310,7 +310,28 @@
 	"hello" `isInfixOf` "hello poople"			-- takes two lists and checks if te sublist is contained in the list
 	"hello" `isPrefixOf` "hello poople"			-- checks if the sublist is at the start of the list
 	"poople" `isSuffixOf` "hello poople"		-- checks if the sublist is at the end of the list
-	
+	partition (>3) [1,2,3,4,5,6,7] 				-- takes a predicate and a list and returns atuple of two lists, the first contains the elements that satisfy the predicate, and the other the ones that don't
+	find (==2) [1,2,3]							-- find takes a predicate and a list, and returns the first element that satisfies the predicate, wrapped in a maybe value
+	4 `elemIndex` [1,2,3,4,5]					-- elemIndex returns the index of an element if it belongs in the list, otherwise it returns Nothing
+	' ' `elemIndices` "hello poople, you there?"-- returns a list of indices where the element is found in the list
+	findIndex (>4) [3,4,5,6]					-- like find, but returns the index					
+	findIndices (>4) [3,4,5,6]					-- like find, but returns a list of indices
+	lines "hello poople,\nyou there?"			-- returns a list of strings, divided by line
+	unlines ["hello poople,","are you there?"]	-- basically the opposite of lines
+	words "hello poople, you there?"			-- divide a string by whitespace
+	unwords ["hello","poople","you","there"]	-- joins a list of word with whitespace
+	delete 'h' "hello poople" 					-- deletes the first occurance of an element
+	[1,2,3,4] \\ [2,3]							-- "\\" is the operand for list difference ([1,4])
+	[1,2,3] `union` [3,4,5]						-- adds two lists togethter but not including diplicates ([1,2,3,4,5])
+	[1,2,3] `intersect` [2,3,4]					-- returns only the elements in both lists
+	insert 4 [1,2,3,5,6]						-- takes an element and a list and inserts it to the left of the first element that is >= to it
+	groupBy ((==) `on` (> 0)) [-1,-2,1,2]		-- on takes a two parameter function and a one parameter function, and returns a predicate function with two parameters, x and y, which are plugged in the second function before being put as parameters of the first one
+	sortBy (compare `on` length) ["ab","","a"]	-- sortBy takes a two parameter function and a list and sorts it accordingly
+
+
+
+
+
 
 
 
