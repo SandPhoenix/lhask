@@ -328,6 +328,29 @@
 	groupBy ((==) `on` (> 0)) [-1,-2,1,2]		-- on takes a two parameter function and a one parameter function, and returns a predicate function with two parameters, x and y, which are plugged in the second function before being put as parameters of the first one
 	sortBy (compare `on` length) ["ab","","a"]	-- sortBy takes a two parameter function and a list and sorts it accordingly
 
+	-- Data.Char module
+
+					-- all the following functions are type :: Char -> Bool
+	all isAlphaNum "hello poople" 	-- combine these functions with "all" to check on a whole list/string (True)
+
+	isControl 		-- ('\a','\n','\t' ecc)
+	isSpace			-- (' ')
+	isLower			-- (a..z)
+	isUpper			-- (A..Z)
+	isAlpha			-- (a..z ++ A..Z)
+	isAlphaNum		-- (a..z ++ A..Z ++ 0..9)
+	isPrint			-- checks if character is printable
+	isDigit			-- (0..9)
+	isOctDigit 		-- (0..7)
+	isHexDigit		-- (0..9 ++ a..f ++ A..F)
+	isLetter		-- (a..z ++ A..Z)
+	isNumber		-- anything in the unicode number category (fractions ecc)
+	isPunctuation
+	isSymbol		-- mathematical anc currency symbols
+	isAscii 		-- checks if a acharacter belongs to the ascii subset
+
+
+
 
 
 
