@@ -369,11 +369,82 @@
 	elems 									-- returns a list of elements
 	fromListWith (++) [(1,"hello"),(2,"poople"),(1,"hey")] -- takes a function and an association list and executes the function on duplicates (same key)
 	insertWith (++) 1 "poople" Map.empty 	-- inserts a key and a values, and if it finds a conflict it executes the function
-	 				
 
+	-- Data.Set module
 
+	import qualified Data.Set as Set
+	fromList 		-- converts a list into a set, and therefore weeds out duplicates
+	intersection	-- returns the elements in both sets
+	difference
+	union
+	null
+	size
+	member
+	empty
+	insert
+	delete
+	isSubsetOf  		-- checks if all the elements of the first set are contained in the second
+	isProperSubsetOf	-- checks if all the elements of the first set are contained in the second but the second has more elements
+	map
+	filter
+	toList 		-- coonverting to a set and then back to a list is faster then using nub
 
+	-- custom modules
 
+		-- this is the module "Geometry.hs"
+	module Geometry
+	( cubeArea 		-- these functions are the ones accessible to the world
+	, cubeVolume
+	, cuboidArea
+	, cuboidVolume
+	) where
+
+	cubeVolume :: Float -> Float  
+	cubeVolume side = cuboidVolume side side side  
+	  
+	cubeArea :: Float -> Float  
+	cubeArea side = cuboidArea side side side  
+	  
+	cuboidVolume :: Float -> Float -> Float -> Float  
+	cuboidVolume a b c = rectangleArea a b * c  
+	  
+	cuboidArea :: Float -> Float -> Float -> Float  
+	cuboidArea a b c = rectangleArea a b * 2 + rectangleArea a c * 2 + rectangleArea c b * 2  
+	  
+	rectangleArea :: Float -> Float -> Float  
+	rectangleArea a b = a * b 					-- some helper functions are not exported
+
+		-- modules can also have submodules
+		-- inside a folder called "Geometry" (mind the capital G) we put "Cuboid.hs"
+
+	module Geometry.Cuboid  
+	( volume  
+	, area  
+	) where  
+	  
+	volume :: Float -> Float -> Float -> Float  
+	volume a b c = rectangleArea a b * c  
+	  
+	area :: Float -> Float -> Float -> Float  
+	area a b c = rectangleArea a b * 2 + rectangleArea a c * 2 + rectangleArea c b * 2  
+	  
+	rectangleArea :: Float -> Float -> Float  
+	rectangleArea a b = a * b
+
+		-- and "Cube.hs"
+
+	module Geometry.Cube  
+	( volume  
+	, area  
+	) where  
+	  
+	import qualified Geometry.Cuboid as Cuboid  
+	  
+	volume :: Float -> Float  
+	volume side = Cuboid.volume side side side  
+	  
+	area :: Float -> Float  
+	area side = Cuboid.area side side side	
 
 
 
