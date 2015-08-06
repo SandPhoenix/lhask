@@ -348,9 +348,28 @@
 	isPunctuation
 	isSymbol		-- mathematical anc currency symbols
 	isAscii 		-- checks if a acharacter belongs to the ascii subset
+	digitToInt		-- (1..9 ++ a..f ++ A..F)
+	ord 			-- returns the ascii value of a character
+	chr 			-- returns the character for an ascii value
 
+	-- Data.Map module
 
-
+	import qualified Data.Map as Map 		-- some functions of this module clash with Prelude
+	fromList [(1,"hallo"),(2,"poople")]		-- turns an association list into a Map, discrding duplicate keys
+	empty 									-- returns a n empty map
+	insert 1 "hello" Map.empty 				-- takes a key, a value and a map and inserts the pair in the map
+	null 									-- checks if a map is empty
+	size 									-- returns the size of a map
+	lookup 1 								-- returns the value stored for a key, or nothing if the key is not in store
+	member 1 Map.empty 						-- takes a key and a map and returns True if the Mao has the kay in store
+	map 									-- these two should
+	filter 									-- work as expected
+	toList 									-- the inverse of fromList
+	keys 									-- returns a list of keys
+	elems 									-- returns a list of elements
+	fromListWith (++) [(1,"hello"),(2,"poople"),(1,"hey")] -- takes a function and an association list and executes the function on duplicates (same key)
+	insertWith (++) 1 "poople" Map.empty 	-- inserts a key and a values, and if it finds a conflict it executes the function
+	 				
 
 
 

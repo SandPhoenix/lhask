@@ -1,4 +1,6 @@
 --doubleMe :: (Int,Float a) -> (Int,Float b)
+import Data.Char
+
 doubleMe x = if x > 100
 	then x
 	else x*2
@@ -95,6 +97,11 @@ needInHay needle haystack
 	| otherwise = needInHay needle (tail haystack)
 	where nLen = length needle
 
+shift :: Int -> String -> String
+shift n xs = map (chr . (+n) . ord) xs
+ 
+decode :: Int -> String -> String
+decode n xs = shift ( negate n ) xs
 
 
 
